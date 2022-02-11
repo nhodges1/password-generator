@@ -22,6 +22,26 @@ function getPasswordOptions() {
         alert('Password length must be less than 129 characters');
         return null;
     }
+
+    // variable to store boolean for the inclusion of special characters
+    var hasSpecialCharacters = confirm(
+        'Click OK to confirm including special characters.'
+    );
+
+    // variable to store boolean for the inclusion of numeric chracters
+    var hasNumericCharacters = confirm(
+        'Click OK to confirm including numeric characters.'
+    );
+
+    // variable to store boolean for the inlcusion of lowercase characters
+    var hasLowerCasedCharacters = confirm(
+        'Click OK to confirm including lowercsse characters.'
+    );
+
+    // variable to store boolean for the inclusion of uppercase characters
+    varhasUpperCasedCharacters - confirm(
+        'Click OK to confirm including uppercase characters.'
+    );
 }
 
 
