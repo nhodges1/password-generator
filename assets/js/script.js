@@ -84,9 +84,53 @@ function generatePassword() {
     var possibleCharacters = [];
 
     // array to contain one of each type of chosen character to ensure each will be used
-    var guranteedCharacters = [];
+    var guaranteedCharacters = [];
 
-    
+    // check if an options object exists, if not exit the function
+    if (!options) return null;
+
+    // conditional statement that adds array of special characters into array of possible characters based on user input
+    // push new random special character to guaranteedCharacters
+    if (options.hasSpecialCharacters) {
+        possibleCharacters = possibleCharacters.concat(specialCharacters);
+        guaranteedCharacters.push(getRandom(specialCharacters));
+    }
+
+    // conditional statement that adds array of numeric characters into array of possible characters based on user input
+    // push new random special character to guaranteedCharacters
+    if (options.hasNumericCharacters) {
+        possibleCharacters = possibleCharacters.concat(numericCharacters);
+        guaranteedCharacters.push(getRandom(numericCharacters));
+    }
+
+    // conditional statement that adds array of lowercase characters into array of possible characters based on user input
+    // push new random special character to guaranteedCharacters
+    if (options.hasLowerCasedCharacters) {
+        possibleCharacters = possibleCharacters.concat(hasLowerCasedCharacters);
+        guaranteedCharacters.push(getRandom(hasLowerCasedCharacters));
+    }
+
+    // conditional statement that adds array of uppercase characters into array of possible characters based on user input
+    // push new random special character to guaranteedCharacters
+    if (options.hasUpperCasedCharacters) {
+        possibleCharacters = possibleCharacters.concat(hasUpperCasedCharacters);
+        guaranteedCharacters.push(getRandom(hasUpperCasedCharacters));
+    }
+
+    // for loop to iterate over the password length from the options object,
+    for (var i = 0; i < options.length; i++) {
+        var possibleCharacter = getRandom(possibleCharacters);
+
+        result.push(possibleCharacter);
+    }
+
+    // mix in at least one of each guaranteed charcter in the result
+    for (var i = 0; i < guaranteedCharacters.length; i++) {
+        result[i] = guaranteedCharacters[i];
+    }
+
+    // transform the result into a string and pass into writePassword
+    return result.join('');
 }
 
 
