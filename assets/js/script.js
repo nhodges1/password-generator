@@ -66,6 +66,29 @@ function getPasswordOptions() {
     return passwordOptions;
 }
 
+// getting a random element from an array
+function getRandom(arr) {
+    var randIndex = Math.floor(Math.random() * arr.length);
+    var randElement = arr[randIndex];
+
+    return randElement;
+}
+
+// generate a password with user input
+function generatePassword() {
+    var options = getPasswordOptions();
+    // store password as it's being concatenated
+    var result = [];
+
+    // array to store types of characters to include in password
+    var possibleCharacters = [];
+
+    // array to contain one of each type of chosen character to ensure each will be used
+    var guranteedCharacters = [];
+
+    
+}
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
